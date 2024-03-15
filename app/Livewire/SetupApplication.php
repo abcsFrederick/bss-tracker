@@ -202,7 +202,7 @@ class SetupApplication extends Component implements HasForms
         $this->setEnvironment('DB_CONNECTION', $connection['driver']);
         $this->setEnvironment('DB_HOST', $connection['host']);
         $this->setEnvironment('DB_PORT', $connection['port']);
-        $this->setEnvironment('DB_DATABASE', $connection['database'], 'mysql');
+        $this->setEnvironment('DB_DATABASE', $connection['database']);
         $this->setEnvironment('DB_USERNAME', $connection['username']);
         $this->setEnvironment('DB_PASSWORD', $connection['password']);
 
