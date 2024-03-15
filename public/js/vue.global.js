@@ -1,5 +1,5 @@
 /**
- * vue v3.4.21
+ * vue
  * (c) 2018-present Yuxi (Evan) You and Vue contributors
  * @license MIT
  **/
@@ -2162,8 +2162,8 @@ getter: `, this.getter);
             buffer = [];
         }
     }
-    function devtoolsInitApp(app, version) {
-        emit$1("app:init" /* APP_INIT */, app, version, {
+    function devtoolsInitApp(app) {
+        emit$1("app:init" /* APP_INIT */, app, 3, {
             Fragment,
             Text,
             Comment,
@@ -5358,7 +5358,6 @@ If this is a native custom element, make sure to exclude it from component resol
                 _container: null,
                 _context: context,
                 _instance: null,
-                version,
                 get config() {
                     return context.config;
                 },
@@ -5457,7 +5456,7 @@ If this is a native custom element, make sure to exclude it from component resol
                         rootContainer.__vue_app__ = app;
                         {
                             app._instance = vnode.component;
-                            devtoolsInitApp(app, version);
+                            devtoolsInitApp(app);
                         }
                         return getExposeProxy(vnode.component) || vnode.component.proxy;
                     } else {
@@ -9599,7 +9598,6 @@ Component that was made reactive: `,
         return true;
     }
 
-    const version = "3.4.21";
     const warn = warn$1 ;
     const ErrorTypeStrings = ErrorTypeStrings$1 ;
     const devtools = devtools$1 ;
@@ -16649,7 +16647,6 @@ ${codeFrame}` : message);
     exports.vModelSelect = vModelSelect;
     exports.vModelText = vModelText;
     exports.vShow = vShow;
-    exports.version = version;
     exports.warn = warn;
     exports.watch = watch;
     exports.watchEffect = watchEffect;
