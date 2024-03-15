@@ -150,6 +150,8 @@ class SetupApplication extends Component implements HasForms
 
         $user->save();
 
+        touch(base_path('.bss-setup'));
+
         return redirect()->to('/');
     }
 
