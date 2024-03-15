@@ -15,6 +15,28 @@
 
 BSS Tracker uses Laravel as it's PHP Framework. For further detailed instructions on setting up the system (including possible requirements not listed here) please visit the [Laravel Documentation](https://laravel.com/docs/10.x/).
 
+## Getting Setup
+
+Once you've cloned the repository, you'll need to install composer dependencies
+
+    composer install
+
+Then, you'll need to install & build the front-end assets
+
+    npm i && npm run build
+
+If you plan on developing the application, you should instead run
+
+    npm i && npm run dev
+
+Next, you'll copy the `.env.example` file to `.env`
+
+    cp .env.example .env
+
+Finally, you'll need to set the application encryption key
+
+    php artisan key:generate
+
 ## Deployment
 
 As BSS Tracker is built using Laravel, deployment instructions are identical to those of Laravel. For help getting the application up & running, refer to the [Laravel Deployment Documentation](https://laravel.com/docs/10.x/deployment). 
