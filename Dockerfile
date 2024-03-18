@@ -1,4 +1,4 @@
-FROM php:8.1-apache-buster as production
+FROM php:8.2-apache-buster as production
 
 RUN apt-get -y update \
     && apt-get install -y libicu-dev \

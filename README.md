@@ -29,9 +29,13 @@ If you plan on developing the application, you should instead run
 
     npm i && npm run dev
 
-Next, you'll copy the `.env.example` file to `.env`
+Next, you'll copy the `.env.example` file to `.env`*
 
     cp .env.example .env
+
+`*` If you're planning on using Docker, instead copy the `.env.docker` file
+
+    cp .env.docker .env
 
 Finally, you'll need to set the application encryption key
 
@@ -39,7 +43,9 @@ Finally, you'll need to set the application encryption key
 
 ## Deployment
 
-As BSS Tracker is built using Laravel, deployment instructions are identical to those of Laravel. For help getting the application up & running, refer to the [Laravel Deployment Documentation](https://laravel.com/docs/10.x/deployment). 
+As BSS Tracker is built using Laravel, deployment instructions are identical to those of Laravel. For help getting the application up & running, refer to the [Laravel Deployment Documentation](https://laravel.com/docs/10.x/deployment).
+
+If you plan on using Docker, at this point, you can run `docker-compose up -d` to bring up the application.
 
 ## Front-end assets
 
