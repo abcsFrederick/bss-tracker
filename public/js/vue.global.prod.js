@@ -1,5 +1,5 @@
 /**
- * vue v3.4.21
+ * vue
  * (c) 2018-present Yuxi (Evan) You and Vue contributors
  * @license MIT
  **/
