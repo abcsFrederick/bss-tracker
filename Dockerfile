@@ -24,24 +24,13 @@ COPY docker/entry.sh /docker-entry.sh
 
 RUN chmod +x /docker-entry.sh
 
+RUN apt-get install libzip-dev -y
+
 RUN docker-php-ext-configure opcache --enable-opcache && \
-    docker-php-ext-install pdo pdo_mysql
+    docker-php-ext-install pdo pdo_mysql zip fileinfo intl
 COPY docker/php/conf.d/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY .. /var/www/html
-RUN composer install --prefer-dist --ignore-platform-reqs --no-dev --optimize-autoloader --no-interaction
 COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
-
-RUN rm -rf node_modules \
-    && rm -rf package-lock.json \
-    && npm install \
-    && npm run build
-
-RUN php artisan config:cache && \
-    php artisan route:cache && \
-    ln -s /var/www/html/storage/app/public/ storage && \
-    chmod 777 -R /var/www/html/storage/ && \
-    chown -R www-data:www-data /var/www/ && \
-    a2enmod rewrite
 
 ENTRYPOINT /docker-entry.sh
