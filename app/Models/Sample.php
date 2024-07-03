@@ -13,6 +13,8 @@ class Sample extends Model
 
     protected $with = ['loggerName', 'location'];
 
+    protected $casts = ['protocol' => 'array', 'protocol_filename' => 'array'];
+
     public function loggerName()
     {
         return $this->belongsTo(LoggerName::class)->withTrashed();
