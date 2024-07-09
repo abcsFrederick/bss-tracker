@@ -13,6 +13,8 @@ class Project extends Model
 
     protected $with = ['investigator'];
 
+    protected $casts = ['attachment' => 'array', 'attachment_filename' => 'array'];
+
     protected static function boot()
     {
         parent::boot();
