@@ -12,7 +12,7 @@
             <div class="flex flex-col items-end gap-y-1">
                 <x-filament::link
                     color="gray"
-                    href="#"
+                    href="/docs"
                     icon="heroicon-m-book-open"
                     icon-alias="panels::widgets.filament-info.open-documentation-button"
                     rel="noopener noreferrer"
@@ -23,7 +23,7 @@
 
                 <x-filament::link
                     color="gray"
-                    href="#"
+                    href="https://github.com/abcsFrederick/bss-tracker"
                     icon-alias="panels::widgets.filament-info.open-github-button"
                     rel="noopener noreferrer"
                     target="_blank"

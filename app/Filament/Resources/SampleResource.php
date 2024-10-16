@@ -67,7 +67,7 @@ class SampleResource extends Resource
                 ->columnSpan(2)
                 ->label('Start date of sample prep in lab'),
 
-            FileUpload::make('protocol')->openable()->columnSpan(2)
+            FileUpload::make('protocol')->multiple()->openable()->columnSpan(2)->storeFileNamesIn('protocol_filename')
                 ->removeUploadedFileButtonPosition('right')
                 ->deletable(fn ($livewire) => get_class($livewire) === 'App\Filament\Resources\SampleResource\Pages\EditSample'),
 

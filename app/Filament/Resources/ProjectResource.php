@@ -42,7 +42,7 @@ class ProjectResource extends Resource
                 ->preload()
                 ->createOptionForm($withCreateForms ? InvestigatorResource::getFormSchema() : null)->createOptionModalHeading('Add Investigator')
                 ->disablePlaceholderSelection(),
-            Forms\Components\FileUpload::make('attachment')->openable()->columnSpan(2)->acceptedFileTypes([
+            Forms\Components\FileUpload::make('attachment')->multiple()->openable()->columnSpan(2)->storeFileNamesIn('attachment_filename')->acceptedFileTypes([
                 'text/plain',
                 'application/pdf',
                 'application/msword',
