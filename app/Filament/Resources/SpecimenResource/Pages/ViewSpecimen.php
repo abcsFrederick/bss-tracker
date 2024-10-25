@@ -35,6 +35,7 @@ class ViewSpecimen extends ViewRecord
     protected function getHeaderActions(): array
     {
         return [
+            Actions\EditAction::make(),
             Actions\Action::make('exportAsJson')
                 ->label(__('Export'))
                 ->action(function ($record) {

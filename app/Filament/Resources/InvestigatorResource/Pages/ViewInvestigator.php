@@ -9,4 +9,11 @@ use Filament\Resources\Pages\ViewRecord;
 class ViewInvestigator extends ViewRecord
 {
     protected static string $resource = InvestigatorResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\EditAction::make(),
+        ];
+    }
 }

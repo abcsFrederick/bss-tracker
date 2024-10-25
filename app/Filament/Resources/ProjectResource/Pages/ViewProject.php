@@ -27,4 +27,11 @@ class ViewProject extends ViewRecord
     {
         return 'View Project ' . $this->data['uid'];
     }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\EditAction::make(),
+        ];
+    }
 }

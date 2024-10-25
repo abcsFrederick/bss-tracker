@@ -28,4 +28,11 @@ class ViewBioSample extends ViewRecord
     {
         return 'View Bio Sample ' . $this->data['uid'];
     }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\EditAction::make(),
+        ];
+    }
 }
