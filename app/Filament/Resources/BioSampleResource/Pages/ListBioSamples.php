@@ -6,6 +6,8 @@ use App\Filament\Resources\BioSampleResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
+use Filament\Support\Enums\MaxWidth;
+
 class ListBioSamples extends ListRecords
 {
     protected static string $resource = BioSampleResource::class;
@@ -17,5 +19,10 @@ class ListBioSamples extends ListRecords
         return [
             Actions\CreateAction::make(),
         ];
+    }
+ 
+    public function getMaxContentWidth(): MaxWidth
+    {
+        return MaxWidth::Full;
     }
 }

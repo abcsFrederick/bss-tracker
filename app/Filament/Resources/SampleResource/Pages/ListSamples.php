@@ -6,6 +6,8 @@ use App\Filament\Resources\SampleResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
+use Filament\Support\Enums\MaxWidth;
+
 class ListSamples extends ListRecords
 {
     protected static string $resource = SampleResource::class;
@@ -17,5 +19,10 @@ class ListSamples extends ListRecords
         return [
             Actions\CreateAction::make(),
         ];
+    }
+
+    public function getMaxContentWidth(): MaxWidth
+    {
+        return MaxWidth::Full;
     }
 }
