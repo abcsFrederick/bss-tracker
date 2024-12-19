@@ -8,6 +8,8 @@ use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Support\Collection;
 
+use Filament\Support\Enums\MaxWidth;
+
 class ListSpecimens extends ListRecords
 {
     protected static string $resource = SpecimenResource::class;
@@ -40,5 +42,10 @@ class ListSpecimens extends ListRecords
 
             Actions\CreateAction::make(),
         ];
+    }
+
+    public function getMaxContentWidth(): MaxWidth
+    {
+        return MaxWidth::Full;
     }
 }
