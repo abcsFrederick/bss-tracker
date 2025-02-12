@@ -5,6 +5,7 @@ namespace App\Filament\Resources\SampleResource\Pages;
 use App\Filament\Resources\SampleResource;
 use App\Models\BioSample;
 use App\Models\Sample;
+use App\Models\Location;
 use Filament\Actions;
 // use App\Filament\CreateRecord;
 use App\Filament\CreateRecord;
@@ -21,8 +22,10 @@ class CreateSample extends CreateRecord
         $samplesCount = $samplesCount > 0 ? $samplesCount + 1 : 1;
 
         $uid = $bioSample->uid . '_' . $samplesCount;
-
         $data['uid'] = $uid;
+
+        $storage = Location::query()->where('id', '=', $data['location_id'])->get('location')->toArray()[0]; 
+        $data['location_storage'] = $data['location'] . ' ' . $storage['location'];
 
         return $data;
     }

@@ -6,9 +6,11 @@ use App\Filament\Resources\SpecimenResource;
 use App\Models\BioSample;
 use App\Models\Sample;
 use App\Models\Specimen;
+use App\Models\Location;
 use Filament\Actions;
 // use App\Filament\CreateRecord;
 use App\Filament\CreateRecord;
+use Illuminate\Support\Facades\DB;
 
 class CreateSpecimen extends CreateRecord
 {
@@ -23,6 +25,9 @@ class CreateSpecimen extends CreateRecord
         $uid = $sample->uid . '_' . $specimenCount;
 
         $data['uid'] = $uid;
+
+        $storage = Location::query()->where('id', '=', $data['location_id'])->get('location')->toArray()[0]; 
+        $data['location_storage'] = $data['location'] . ' ' . $storage['location'];
 
         return $data;
     }

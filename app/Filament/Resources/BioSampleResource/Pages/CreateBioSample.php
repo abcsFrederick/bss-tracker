@@ -5,6 +5,7 @@ namespace App\Filament\Resources\BioSampleResource\Pages;
 use App\Filament\Resources\BioSampleResource;
 use App\Models\Project;
 use Filament\Actions;
+use App\Models\Location;
 // // use App\Filament\CreateRecord;
 use App\Filament\CreateRecord;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +22,9 @@ class CreateBioSample extends CreateRecord
         $uid = env('PROJECT_PREFIX') . $data['project_id'] . id_to_alpha($biosampleCount);
 
         $data['uid'] = $uid;
+
+        $storage = Location::query()->where('id', '=', $data['location_id'])->get('location')->toArray()[0]; 
+        $data['location_storage'] = $data['location'] . ' ' . $storage['location'];
 
         return $data;
     }
