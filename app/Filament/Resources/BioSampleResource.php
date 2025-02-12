@@ -93,13 +93,14 @@ class BioSampleResource extends Resource
                 Tables\Columns\TextColumn::make('project.name')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('label')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('label')->sortable()->searchable(['label','description']),
                 Tables\Columns\TextColumn::make('fullLocation')->label('Location'),
                 Tables\Columns\TextColumn::make('exhausted')->alignCenter()
                     ->formatStateUsing(fn (string $state): string => match ($state) {
                         '0' => 'No',
                         default => 'Yes'
                     }),
+                // Tables\Columns\TextColumn::make('description')->hidden()->searchable(['description']),
                 Tables\Columns\TextColumn::make('created_at')->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')->sortable(),
             ])

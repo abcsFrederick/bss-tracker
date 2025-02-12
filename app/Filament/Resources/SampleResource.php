@@ -112,10 +112,12 @@ class SampleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('uid')->label('UID'),
-                Tables\Columns\TextColumn::make('label'),
-                Tables\Columns\TextColumn::make('fullLocation')->label('Location'),
-                Tables\Columns\TextColumn::make('bioSample.label'),
+                Tables\Columns\TextColumn::make('uid')->label('UID')->searchable(),
+                Tables\Columns\TextColumn::make('label')->searchable(),
+                Tables\Columns\TextColumn::make('location')->searchable(),
+                Tables\Columns\TextColumn::make('mike_test')->searchable(),
+                //Tables\Columns\TextColumn::make('fullLocation')->label('Location')->searchable(['fullLocation']),
+                Tables\Columns\TextColumn::make('bioSample.label')->searchable(),
                 Tables\Columns\TextColumn::make('exhausted')->alignCenter()
                     ->formatStateUsing(fn (string $state): string => match ($state) {
                         '0' => 'No',

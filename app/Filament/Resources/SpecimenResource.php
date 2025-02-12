@@ -143,15 +143,15 @@ class SpecimenResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('uid')->label('UID'),
+                Tables\Columns\TextColumn::make('uid')->label('UID')->searchable(),
                 Tables\Columns\TextColumn::make('substrateType.type')->label('Substrate Type'),
-                Tables\Columns\TextColumn::make('fullLocation')->label('Location'),
-                Tables\Columns\TextColumn::make('sample.label'),
+                Tables\Columns\TextColumn::make('fullLocation')->label('Location')->searchable(['location','locations.location']),
+                Tables\Columns\TextColumn::make('sample.label')->searchable(),
                 Tables\Columns\TextColumn::make('created_at')->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')->sortable(),
             ])
             ->filters([
-                Tables\Filters\SelectFilter::make('Sample')->relationship('sample', 'uid'),
+                Tables\Filters\SelectFilter::make('Sample')->relationship('sample', 'uid')->searchable(),
                 Tables\Filters\SelectFilter::make('Logger Name')->relationship('loggerName', 'name'),
             ])
             ->actions([
