@@ -5,6 +5,7 @@ namespace App\Filament\Resources\SampleResource\Pages;
 use App\Filament\Resources\SampleResource;
 use App\Models\Sample;
 use App\Models\Specimen;
+use App\Models\Location;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Contracts\Support\Htmlable;
@@ -12,6 +13,16 @@ use Illuminate\Contracts\Support\Htmlable;
 class EditSample extends EditRecord
 {
     protected static string $resource = SampleResource::class;
+
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        $storage = Location::query()->where('id', '=', $data['location_id'])->get('location')->toArray()[0]; 
+        $data['location_storage'] = $data['location'] . ' ' . $storage['location'];
+
+        return $data;
+    }
+    
 
     public function getBreadcrumbs(): array
     {

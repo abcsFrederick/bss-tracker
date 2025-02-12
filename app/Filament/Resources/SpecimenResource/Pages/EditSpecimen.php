@@ -4,6 +4,7 @@ namespace App\Filament\Resources\SpecimenResource\Pages;
 
 use App\Filament\Resources\SpecimenResource;
 use App\Models\Specimen;
+use App\Models\Location;
 use App\Services\SpecimenExport;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
@@ -15,6 +16,14 @@ class EditSpecimen extends EditRecord
     protected static string $resource = SpecimenResource::class;
 
     protected static string $view = 'filament.resources.specimen.edit';
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        $storage = Location::query()->where('id', '=', $data['location_id'])->get('location')->toArray()[0]; 
+        $data['location_storage'] = $data['location'] . ' ' . $storage['location'];
+
+        return $data;
+    }
 
     public function getBreadcrumbs(): array
     {
