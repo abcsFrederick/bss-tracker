@@ -14,6 +14,13 @@ return new class extends Migration
         Schema::table('bio_samples', function (Blueprint $table) {
             $table->string('location_storage')->nullable();
         });
+
+        // Retroactively populate
+        DB::statement(
+            "update bio_samples JOIN locations ON bio_samples.location_id = locations.id ".
+            "set bio_samples.location_storage = CONCAT(locations.location, ' ', IF(bio_samples.location IS NOT NULL, bio_samples.location, '')) ".
+            "WHERE bio_samples.location_storage is NULL"
+        );
     }
 
     /**
