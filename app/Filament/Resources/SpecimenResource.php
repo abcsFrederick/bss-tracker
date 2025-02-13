@@ -143,10 +143,13 @@ class SpecimenResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('uid')->label('UID')->searchable(),
+                Tables\Columns\TextColumn::make('uid')->label('UID')->searchable(['uid','label']),
                 Tables\Columns\TextColumn::make('substrateType.type')->label('Substrate Type'),
                 Tables\Columns\TextColumn::make('location_storage')->label('Location')->searchable(),
                 Tables\Columns\TextColumn::make('sample.label')->searchable(),
+                Tables\Columns\TextColumn::make('imagingApproach.imaging_approach')->visibleFrom('2xl')->label('Imaging Approach')->searchable(),
+                Tables\Columns\TextColumn::make('sample.bioSample.project.name')->visibleFrom('2xl')->label('Project')->searchable(),
+                Tables\Columns\TextColumn::make('sample.bioSample.description')->visibleFrom('2xl')->label('Description')->searchable(),
                 Tables\Columns\TextColumn::make('created_at')->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')->sortable(),
             ])
