@@ -114,9 +114,7 @@ class SampleResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('uid')->label('UID')->searchable(),
                 Tables\Columns\TextColumn::make('label')->searchable(),
-                // Tables\Columns\TextColumn::make('location')->searchable(),
                 Tables\Columns\TextColumn::make('location_storage')->label('Location')->searchable(),
-                //Tables\Columns\TextColumn::make('fullLocation')->label('Location')->searchable(['fullLocation']),
                 Tables\Columns\TextColumn::make('bioSample.label')->searchable(),
                 Tables\Columns\TextColumn::make('exhausted')->alignCenter()
                     ->formatStateUsing(fn (string $state): string => match ($state) {

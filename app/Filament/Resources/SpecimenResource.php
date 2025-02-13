@@ -145,7 +145,6 @@ class SpecimenResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('uid')->label('UID')->searchable(),
                 Tables\Columns\TextColumn::make('substrateType.type')->label('Substrate Type'),
-                // Tables\Columns\TextColumn::make('fullLocation')->label('Location')->searchable(['location','locations.location']),
                 Tables\Columns\TextColumn::make('location_storage')->label('Location')->searchable(),
                 Tables\Columns\TextColumn::make('sample.label')->searchable(),
                 Tables\Columns\TextColumn::make('created_at')->sortable(),
