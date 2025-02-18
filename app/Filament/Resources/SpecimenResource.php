@@ -149,7 +149,8 @@ class SpecimenResource extends Resource
                 Tables\Columns\TextColumn::make('sample.label')->searchable(),
                 Tables\Columns\TextColumn::make('imagingApproach.imaging_approach')->visibleFrom('2xl')->label('Imaging Approach')->searchable(),
                 Tables\Columns\TextColumn::make('sample.bioSample.project.name')->visibleFrom('2xl')->label('Project')->searchable(),
-                Tables\Columns\TextColumn::make('sample.bioSample.description')->visibleFrom('2xl')->label('Description')->searchable(),
+                Tables\Columns\TextColumn::make('sample.bioSample.project.description')->visibleFrom('2xl')->label('Project Description')->searchable(),
+                Tables\Columns\TextColumn::make('sample.bioSample.description')->visibleFrom('2xl')->label('BioSample Description')->searchable(),
                 Tables\Columns\TextColumn::make('created_at')->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')->sortable(),
             ])

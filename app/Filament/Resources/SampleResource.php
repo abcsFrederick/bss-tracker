@@ -116,8 +116,9 @@ class SampleResource extends Resource
                 Tables\Columns\TextColumn::make('label')->searchable(),
                 Tables\Columns\TextColumn::make('location_storage')->label('Location')->searchable(),
                 Tables\Columns\TextColumn::make('bioSample.label')->searchable(),
+                Tables\Columns\TextColumn::make('bioSample.description')->visibleFrom('2xl')->label('BioSample Description')->searchable(),
                 Tables\Columns\TextColumn::make('bioSample.project.name')->visibleFrom('2xl')->label('Project')->searchable(),
-                Tables\Columns\TextColumn::make('bioSample.description')->visibleFrom('2xl')->label('Description')->searchable(),
+                Tables\Columns\TextColumn::make('bioSample.project.description')->visibleFrom('2xl')->label('Project Description')->searchable(),
                 Tables\Columns\TextColumn::make('exhausted')->alignCenter()
                     ->formatStateUsing(fn (string $state): string => match ($state) {
                         '0' => 'No',
