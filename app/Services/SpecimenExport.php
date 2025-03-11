@@ -15,6 +15,26 @@ class SpecimenExport
                 'sample.bioSample.project.investigator'
             ]))->toArray();
 
+            // Reverse the hierarchy
+            // Peel the array
+            $invest = $record['sample']['bio_sample']['project']['investigator'];
+            $project = $record['sample']['bio_sample']['project'];
+            $bioSample = $record['sample']['bio_sample'];
+            $sample = $record['sample'];
+            // Remove the links
+            unset($project['investigator']);
+            unset($bioSample['project']);
+            unset($sample['bio_sample']);
+            unset($record['sample']);
+            // Re-link in proper hierarchy
+            $sample['specimen'] = $record;
+            $bioSample['sample'] = $sample;
+            $project['bioSample'] = $bioSample;
+            $invest['project'] = $project;
+            
+            $hierarchy['investigator'] = $invest;
+            $record = $hierarchy;
+
             echo json_encode($record, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
         }, $name . '.json');
     }

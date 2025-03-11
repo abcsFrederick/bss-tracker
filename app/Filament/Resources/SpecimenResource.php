@@ -169,13 +169,34 @@ class SpecimenResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                     Tables\Actions\BulkAction::make('exportAllAsJson')
-                        ->label(__('Export All'))
+                        ->label(__('Export Selected'))
                         ->action(function (Collection $records) {
                             $archive = new \ZipArchive;
                             $archive->open('specimens.zip', \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
                             foreach ($records as $record) {
                                 $name = \Str::slug($record->uid, '_') . '.json';
                                 $return = $record->load('sample.bioSample.project.investigator')->toArray();
+                                
+                                // Reverse the hierarchy
+                                // Peel the array
+                                $invest = $return['sample']['bio_sample']['project']['investigator'];
+                                $project = $return['sample']['bio_sample']['project'];
+                                $bioSample = $return['sample']['bio_sample'];
+                                $sample = $return['sample'];
+                                // Remove the links
+                                unset($project['investigator']);
+                                unset($bioSample['project']);
+                                unset($sample['bio_sample']);
+                                unset($record['sample']);
+                                // Re-link in proper hierarchy
+                                $sample['specimen'] = $record;
+                                $bioSample['sample'] = $sample;
+                                $project['bioSample'] = $bioSample;
+                                $invest['project'] = $project;
+                                
+                                $hierarchy['investigator'] = $invest;
+                                $return = $hierarchy;
+
                                 $content = json_encode($return, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
                                 $archive->addFromString($name, $content);
                             }
