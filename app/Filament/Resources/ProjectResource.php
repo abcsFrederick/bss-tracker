@@ -71,6 +71,11 @@ class ProjectResource extends Resource
                 'application/vnd.ms-powerpoint.presentation.macroEnabled.12',
                 'application/vnd.ms-powerpoint.template.macroEnabled.12',
                 'application/vnd.ms-powerpoint.slideshow.macroEnabled.12',
+                'image/png',
+                'image/jpeg',
+                'image/gif',
+                'image/webp',
+                'image/avif'
             ]),
             Forms\Components\MarkdownEditor::make('description')
                 ->label('Goals/Desired Outcomes')
