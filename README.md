@@ -6,13 +6,16 @@
 ![Dashboard View](https://raw.githubusercontent.com/abcsFrederick/bss-tracker/refs/heads/main/screens/dashboard.png)
 
 ### View a Specimen
-![View Specimen](https://raw.githubusercontent.com/abcsFrederick/bss-tracker/refs/heads/main/screens/viewspecimen.mp4)
+https://github.com/user-attachments/assets/6c645dbc-679b-4ad5-b539-244046acbf96
+
 
 ### Create a Project
-![Create Project](https://raw.githubusercontent.com/abcsFrederick/bss-tracker/refs/heads/main/screens/newproject.mp4)
+https://github.com/user-attachments/assets/bf5ce304-42dc-43e3-8d0f-c4a12fb5e6b3
+
 
 ### Edit a Biosample
-![Edit Biosample](https://raw.githubusercontent.com/abcsFrederick/bss-tracker/refs/heads/main/screens/editbiosample.mp4)
+https://github.com/user-attachments/assets/17952b43-12f4-4d73-ad3d-c4eb5a5af9ec
+
 
 ## Requirements
 
