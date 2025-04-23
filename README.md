@@ -1,5 +1,19 @@
 # BSS Tracker
 
+## Screens
+
+### Dashboard View
+![Dashboard View](https://github.com/abcsFrederick/bss-tracker/screens/dashboard.png)
+
+### View a Specimen
+![View Specimen](https://github.com/abcsFrederick/bss-tracker/screens/viewspecimen.gif)
+
+### Create a Project
+![Create Project](https://github.com/abcsFrederick/bss-tracker/screens/newproject.gif)
+
+### Edit a Biosample
+![Edit Biosample](https://github.com/abcsFrederick/bss-tracker/screens/editbiosample.gif)
+
 ## Requirements
 
 - A web server (Apache/NGINX)
