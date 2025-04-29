@@ -1,5 +1,11 @@
 # BSS Tracker
 
+## Hierarchy
+
+Below is a basic schema of the BSS tracker hierarchy, and an example .json schema is [here](https://raw.githubusercontent.com/abcsFrederick/bss-tracker/refs/heads/main/screens/example.json).
+
+<img width="1125" alt="BSS Tracker Hierarchy" src="https://github.com/user-attachments/assets/122a5ed0-6448-4c0a-810d-53fbc55cbb17" />
+
 ## Screens
 
 ### Dashboard View
@@ -15,13 +21,6 @@ https://github.com/user-attachments/assets/bf5ce304-42dc-43e3-8d0f-c4a12fb5e6b3
 
 ### Edit a Biosample
 https://github.com/user-attachments/assets/17952b43-12f4-4d73-ad3d-c4eb5a5af9ec
-
-
-## Hierarchy
-
-Below is a basic schema of the BSS tracker hierarchy, and an example .json schema is [here](https://raw.githubusercontent.com/abcsFrederick/bss-tracker/refs/heads/main/screens/example.json).
-
-![image](https://github.com/user-attachments/assets/ed02f2ea-1748-4614-9a2c-ecbda25df33c)
 
 
 ## Requirements
