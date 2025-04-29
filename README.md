@@ -17,6 +17,13 @@ https://github.com/user-attachments/assets/bf5ce304-42dc-43e3-8d0f-c4a12fb5e6b3
 https://github.com/user-attachments/assets/17952b43-12f4-4d73-ad3d-c4eb5a5af9ec
 
 
+## Hierarchy
+
+Below is a basic schema of the BSS tracker hierarchy, and an example .json schema is [here](https://raw.githubusercontent.com/abcsFrederick/bss-tracker/refs/heads/main/screens/example.json).
+
+![image](https://github.com/user-attachments/assets/ed02f2ea-1748-4614-9a2c-ecbda25df33c)
+
+
 ## Requirements
 
 - A web server (Apache/NGINX)
