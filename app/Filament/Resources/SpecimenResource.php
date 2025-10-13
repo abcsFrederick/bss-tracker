@@ -123,7 +123,11 @@ class SpecimenResource extends Resource
                     ])->createOptionModalHeading('Add Imaging Approach')
                     ->disablePlaceholderSelection(),
 
-                Forms\Components\TextInput::make('imaging_approach_note')->columnSpan(1),
+                Forms\Components\TextInput::make('imaging_details')->columnSpan(1),
+
+                Forms\Components\TextInput::make('image_directory')
+                    ->label("Path to directory on data server containing raw images")
+                    ->columnSpan(2),
 
                 Forms\Components\RichEditor::make('notes')
                     ->columnSpan(2),
