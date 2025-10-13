@@ -81,6 +81,33 @@ class BioSampleResource extends Resource
             Forms\Components\TextInput::make('location_note')->columnSpan(2),
             Forms\Components\TextInput::make('label')->required()->columnSpan(1),
             Forms\Components\Select::make('exhausted')->options([true => 'Yes', false => 'No'])->columnSpan(1),
+            Forms\Components\TextInput::make('organism')->required()->columnSpan(1),
+            Forms\Components\TextInput::make('organ_system')->required()->columnSpan(1),
+            Forms\Components\TextInput::make('tissue_location')->required()->columnSpan(1),
+            Forms\Components\TextInput::make('cell_type')->required()->columnSpan(1),
+            Forms\Components\TextInput::make('organelle')->required()->columnSpan(1),
+            Forms\Components\Radio::make('is_native')->required()->columnSpan(1)
+                ->options([
+                    'Yes',
+                    'No',
+                    'Unknown'
+                ]),
+            Forms\Components\TextInput::make('intrinsic_variables')->required()->columnSpan(1),
+            Forms\Components\TextInput::make('extrinsic_variables')->required()->columnSpan(1),
+            Forms\Components\TextInput::make('experimental_variables')->required()->columnSpan(1),
+            Forms\Components\Radio::make('cell_context')->required()->columnSpan(1)
+                ->options([
+                    'Tissue',
+                    'Cell',
+                    'Cell Line',
+                ]),
+            Forms\Components\Radio::make('is_diseased')->required()->columnSpan(1)
+                ->options([
+                    'Diseased',
+                    'Healthy',
+                    'Unknown'
+                ]),
+            Forms\Components\TextInput::make('pathology')->required()->columnSpan(1),
             Forms\Components\Textarea::make('description')->required()->columnSpan(2),
         ];
     }
