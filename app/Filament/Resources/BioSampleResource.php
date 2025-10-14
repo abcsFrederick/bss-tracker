@@ -86,26 +86,26 @@ class BioSampleResource extends Resource
             Forms\Components\TextInput::make('tissue_location')->required()->columnSpan(1),
             Forms\Components\TextInput::make('cell_type')->required()->columnSpan(1),
             Forms\Components\TextInput::make('organelle')->required()->columnSpan(1),
-            Forms\Components\Radio::make('is_native')->required()->columnSpan(1)
+            Forms\Components\Radio::make('is_native')->required()->columnSpan(1)->inline()->inlineLabel(false)
                 ->options([
-                    'Yes',
-                    'No',
-                    'Unknown'
+                    'Yes' => 'Yes',
+                    'No' => 'No',
+                    'Unknown' => 'Unknown',
                 ]),
             Forms\Components\TextInput::make('intrinsic_variables')->required()->columnSpan(1),
             Forms\Components\TextInput::make('extrinsic_variables')->required()->columnSpan(1),
             Forms\Components\TextInput::make('experimental_variables')->required()->columnSpan(1),
-            Forms\Components\Radio::make('cell_context')->required()->columnSpan(1)
+            Forms\Components\Radio::make('cell_context')->required()->columnSpan(1)->inline()->inlineLabel(false)
                 ->options([
-                    'Tissue',
-                    'Cell',
-                    'Cell Line',
+                    'Tissue' => 'Tissue',
+                    'Cell' => 'Cell',
+                    'Cell Line' => 'Cell Line',
                 ]),
-            Forms\Components\Radio::make('is_diseased')->required()->columnSpan(1)
+            Forms\Components\Radio::make('is_diseased')->required()->columnSpan(1)->inline()->inlineLabel(false)
                 ->options([
-                    'Diseased',
-                    'Healthy',
-                    'Unknown'
+                    'Healthy' => 'Healthy',
+                    'Diseased' => 'Diseased',
+                    'Unknown' => 'Unknown',
                 ]),
             Forms\Components\TextInput::make('pathology')->required()->columnSpan(1),
             Forms\Components\Textarea::make('description')->required()->columnSpan(2),
