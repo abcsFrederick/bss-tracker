@@ -122,7 +122,10 @@ class BioSampleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('uid')->label('UID')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('uid')->label('UID')->sortable(query: function (Builder $query, string $direction): Builder {
+                    return $query
+                        ->orderByRaw('length(uid), uid ' . $direction);
+                })->searchable(),
                 Tables\Columns\TextColumn::make('project.name')
                     ->sortable()
                     ->searchable(),
