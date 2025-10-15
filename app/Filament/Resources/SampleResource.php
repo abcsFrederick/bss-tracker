@@ -54,6 +54,10 @@ class SampleResource extends Resource
                 ->afterStateUpdated(function ($state, $old, Forms\Set $set) {
                     $set('label', BioSample::withTrashed()->find($state)->label);
                 })
+                ->helperText(fn (Forms\Get $get): string => $get('bio_sample_id') ? 
+                    'Last created sample: ' . (BioSample::withTrashed()->find($get('bio_sample_id'))->samples()->latest()->first() ? 
+                        BioSample::withTrashed()->find($get('bio_sample_id'))->samples()->latest()->first()->uid : "None")
+                    : "")
                 ->columnSpan(2)
                 ->createOptionForm(
                     BioSampleResource::getFormSchema()
