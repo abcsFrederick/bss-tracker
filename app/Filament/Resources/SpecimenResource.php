@@ -125,7 +125,7 @@ class SpecimenResource extends Resource
 
                 Forms\Components\TextInput::make('imaging_details')->columnSpan(1),
 
-                Forms\Components\TextInput::make('image_directory')
+                Forms\Components\Textarea::make('image_directory')
                     ->label("Path to directory on data server containing raw images")
                     ->columnSpan(2),
 

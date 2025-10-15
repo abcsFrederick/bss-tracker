@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('specimens', function (Blueprint $table) {
             // Add the column
-            $table->string('image_directory')->default('')->nullable();
+            $table->text('image_directory')->default('')->nullable();
         });
     }
 
