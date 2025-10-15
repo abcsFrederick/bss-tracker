@@ -85,16 +85,20 @@ class BioSampleResource extends Resource
             Forms\Components\TextInput::make('organ_system')->required()->columnSpan(1),
             Forms\Components\TextInput::make('tissue_location')->required()->columnSpan(1),
             Forms\Components\TextInput::make('cell_type')->required()->columnSpan(1),
-            Forms\Components\TextInput::make('organelle')->required()->columnSpan(1),
+            Forms\Components\TextInput::make('organelle')->required()->columnSpan(1)->label("Organelle targeted"),
             Forms\Components\Radio::make('is_native')->required()->columnSpan(1)->inline()->inlineLabel(false)
                 ->options([
                     'Yes' => 'Yes',
                     'No' => 'No',
                     'Unknown' => 'Unknown',
-                ]),
-            Forms\Components\TextInput::make('intrinsic_variables')->required()->columnSpan(1),
-            Forms\Components\TextInput::make('extrinsic_variables')->required()->columnSpan(1),
-            Forms\Components\TextInput::make('experimental_variables')->required()->columnSpan(1),
+                ])
+                ->label("Is native (i.e. not experimentally altered in any way)"),
+            Forms\Components\TextInput::make('intrinsic_variables')->columnSpan(1)
+                ->label("Intrinsic variables (e.g. mutations)"),
+            Forms\Components\TextInput::make('extrinsic_variables')->columnSpan(1)
+                ->label("Extrinsic variables (e.g. added reagents)"),
+            Forms\Components\TextInput::make('experimental_variables')->columnSpan(1)
+                ->label("Experimental variables (e.g. time)"),
             Forms\Components\Radio::make('cell_context')->required()->columnSpan(1)->inline()->inlineLabel(false)
                 ->options([
                     'Tissue' => 'Tissue',
@@ -106,9 +110,11 @@ class BioSampleResource extends Resource
                     'Healthy' => 'Healthy',
                     'Diseased' => 'Diseased',
                     'Unknown' => 'Unknown',
-                ]),
-            Forms\Components\TextInput::make('pathology')->required()->columnSpan(1),
-            Forms\Components\Textarea::make('description')->required()->columnSpan(2),
+                ])
+                ->label("Is diseased? (typically for clinical samples)"),
+            Forms\Components\TextInput::make('pathology')->columnSpan(1)
+                ->label("Pathology (for diseased biosamples)"),
+            Forms\Components\Textarea::make('description')->columnSpan(2),
         ];
     }
 

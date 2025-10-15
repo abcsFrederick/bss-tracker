@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::table('bio_samples', function (Blueprint $table) {
             // Add the columns
-            $table->text('organism')->default('NA');
-            $table->text('organ_system')->default('NA');
-            $table->text('tissue_location')->default('NA');
-            $table->text('cell_type')->default('NA');
-            $table->text('organelle')->default('NA');
+            $table->string('organism')->default('NA');
+            $table->string('organ_system')->default('NA');
+            $table->string('tissue_location')->default('NA');
+            $table->string('cell_type')->default('NA');
+            $table->string('organelle')->default('NA');
             $table->enum('is_native', ['Yes','No','Unknown'])->default('Unknown');
-            $table->text('intrinsic_variables')->default('NA');
-            $table->text('extrinsic_variables')->default('NA');
-            $table->text('experimental_variables')->default('NA');
+            $table->string('intrinsic_variables')->default('NA')->nullable();
+            $table->string('extrinsic_variables')->default('NA')->nullable();
+            $table->string('experimental_variables')->default('NA')->nullable();
             $table->enum('cell_context', ['Tissue','Cell','Cell Line','Unknown'])->default('Unknown');
             $table->enum('is_diseased', ['Healthy','Diseased','Unknown'])->default('Unknown');
-            $table->text('pathology')->default('NA');
+            $table->string('pathology')->default('NA')->nullable();
         });
     }
 
