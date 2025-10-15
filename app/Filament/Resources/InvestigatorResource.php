@@ -66,7 +66,8 @@ class InvestigatorResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->searchPlaceholder("Search Investigators");
     }
 
     public static function getRelations(): array

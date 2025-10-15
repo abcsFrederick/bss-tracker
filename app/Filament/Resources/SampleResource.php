@@ -143,7 +143,8 @@ class SampleResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->searchPlaceholder("Search Samples");
     }
 
     public static function getRelations(): array

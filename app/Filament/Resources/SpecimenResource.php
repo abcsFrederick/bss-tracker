@@ -209,7 +209,8 @@ class SpecimenResource extends Resource
                         })
                         ->deselectRecordsAfterCompletion()
                 ]),
-            ]);
+            ])
+            ->searchPlaceholder("Search Specimens");
     }
 
     public static function getRelations(): array

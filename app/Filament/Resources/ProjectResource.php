@@ -76,7 +76,8 @@ class ProjectResource extends Resource
                 'image/gif',
                 'image/webp',
                 'image/avif'
-            ]),
+            ])
+            ->helperText('Accepted file types are: Text file, PDF,Word doc, Excel sheet, Powerpoint or image'),
             Forms\Components\MarkdownEditor::make('description')
                 ->label('Goals/Desired Outcomes')
                 ->columnSpan(2)
@@ -104,7 +105,8 @@ class ProjectResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->searchPlaceholder("Search Projects");
     }
 
     public static function getRelations(): array
