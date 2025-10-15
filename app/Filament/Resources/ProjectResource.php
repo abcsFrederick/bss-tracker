@@ -11,6 +11,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class ProjectResource extends Resource
 {
@@ -88,7 +89,10 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('uid')->label('UID')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('uid')->label('UID')->sortable(query: function (Builder $query, string $direction): Builder {
+                    return $query
+                        ->orderByRaw('length(uid) '. $direction .', uid ' . $direction);
+                })->searchable(),
                 Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('investigator.name')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('created_at')->sortable(),
