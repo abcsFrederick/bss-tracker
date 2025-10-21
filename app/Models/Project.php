@@ -44,6 +44,6 @@ class Project extends Model
 
     public function bioSamples()
     {
-        return $this->hasMany(BioSample::class)->withTrashed();
+        return $this->hasMany(BioSample::class);//->withTrashed();
     }
 }

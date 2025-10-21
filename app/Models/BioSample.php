@@ -25,6 +25,6 @@ class BioSample extends Model
 
     public function samples()
     {
-        return $this->hasMany(Sample::class)->withTrashed();
+        return $this->hasMany(Sample::class);//->withTrashed();
     }
 }

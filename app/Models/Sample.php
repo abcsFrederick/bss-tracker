@@ -27,6 +27,6 @@ class Sample extends Model
 
     public function specimens()
     {
-        return $this->hasMany(Specimen::class)->withTrashed();
+        return $this->hasMany(Specimen::class);//->withTrashed();
     }
 }
