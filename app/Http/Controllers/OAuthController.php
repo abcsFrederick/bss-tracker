@@ -82,6 +82,6 @@ class OAuthController
 
         Auth::loginUsingId($user->id);
 
-        return redirect()->to('/');
+        return redirect()->intended('/');
     }
 }
