@@ -25,7 +25,7 @@ class InvestigatorResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static ?string $recordTitleAttribute = 'email';
+    // protected static ?string $recordTitleAttribute = 'email';
 
     public static function form(Form $form): Form
     {
