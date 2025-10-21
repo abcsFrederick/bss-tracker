@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\BioSampleResource\Pages;
 use App\Filament\Resources\BioSampleResource\RelationManagers;
 use App\Models\BioSample;
-//use App\Traits\HasFullTextSearch;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -18,8 +17,6 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BioSampleResource extends Resource
 {
-    //use HasFullTextSearch;
-
     protected static ?string $model = BioSample::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-circle-stack';

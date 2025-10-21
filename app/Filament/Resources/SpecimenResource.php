@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\SpecimenResource\Pages;
 use App\Models\Sample;
 use App\Models\Specimen;
-// use App\Traits\HasFullTextSearch;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -17,8 +16,6 @@ use Yepsua\Filament\Forms\Components\Rating;
 
 class SpecimenResource extends Resource
 {
-    // use HasFullTextSearch;
-
     protected static ?string $model = Specimen::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

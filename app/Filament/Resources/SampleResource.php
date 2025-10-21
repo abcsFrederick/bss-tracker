@@ -7,7 +7,6 @@ use App\Filament\Resources\SampleResource\RelationManagers;
 use App\Livewire\FileUpload;
 use App\Models\BioSample;
 use App\Models\Sample;
-// use App\Traits\HasFullTextSearch;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Pages\ListRecords;
@@ -21,8 +20,6 @@ use Illuminate\Database\Query\Builder;
 
 class SampleResource extends Resource
 {
-    // use HasFullTextSearch;
-
     protected static ?string $model = Sample::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\InvestigatorResource\Pages;
 use App\Filament\Resources\InvestigatorResource\RelationManagers;
 use App\Models\Investigator;
-// use App\Traits\HasFullTextSearch;
 use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -17,8 +16,6 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class InvestigatorResource extends Resource
 {
-    // use HasFullTextSearch;
-
     protected static ?string $model = Investigator::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
