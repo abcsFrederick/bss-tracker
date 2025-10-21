@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\SpecimenResource\Pages;
 use App\Models\Sample;
 use App\Models\Specimen;
-use App\Traits\HasFullTextSearch;
+// use App\Traits\HasFullTextSearch;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -17,7 +17,7 @@ use Yepsua\Filament\Forms\Components\Rating;
 
 class SpecimenResource extends Resource
 {
-    use HasFullTextSearch;
+    // use HasFullTextSearch;
 
     protected static ?string $model = Specimen::class;
 
@@ -25,7 +25,7 @@ class SpecimenResource extends Resource
 
     protected static ?int $navigationSort = 5;
 
-    protected static ?string $recordTitleAttribute = 'model_title';
+    protected static ?string $recordTitleAttribute = 'uid';
 
     public static function form(Form $form): Form
     {

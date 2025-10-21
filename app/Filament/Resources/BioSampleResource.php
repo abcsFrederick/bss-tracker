@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\BioSampleResource\Pages;
 use App\Filament\Resources\BioSampleResource\RelationManagers;
 use App\Models\BioSample;
-use App\Traits\HasFullTextSearch;
+//use App\Traits\HasFullTextSearch;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BioSampleResource extends Resource
 {
-    use HasFullTextSearch;
+    //use HasFullTextSearch;
 
     protected static ?string $model = BioSample::class;
 
@@ -26,7 +26,7 @@ class BioSampleResource extends Resource
 
     protected static ?int $navigationSort = 3;
 
-    protected static ?string $recordTitleAttribute = 'model_title';
+    protected static ?string $recordTitleAttribute = 'uid';
 
     public static function form(Form $form): Form
     {

@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ProjectResource\Pages;
 use App\Filament\Resources\ProjectResource\RelationManagers;
 use App\Models\Project;
-use App\Traits\HasFullTextSearch;
+// use App\Traits\HasFullTextSearch;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,9 +15,9 @@ use Illuminate\Database\Eloquent\Builder;
 
 class ProjectResource extends Resource
 {
-    use HasFullTextSearch;
+    // use HasFullTextSearch;
 
-    protected static ?string $recordTitleAttribute = 'model_title';
+    protected static ?string $recordTitleAttribute = 'uid';
 
     protected static ?string $model = Project::class;
 
@@ -29,6 +29,11 @@ class ProjectResource extends Resource
     {
         return $form
             ->schema(self::getFormSchema());
+    }
+
+    public static function getGloballySearchableAttributes(): array 
+    {
+        return ['name', 'uid', 'investigator.name',];
     }
 
     public static function getFormSchema($withCreateForms = true): array

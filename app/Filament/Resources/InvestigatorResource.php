@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\InvestigatorResource\Pages;
 use App\Filament\Resources\InvestigatorResource\RelationManagers;
 use App\Models\Investigator;
-use App\Traits\HasFullTextSearch;
+// use App\Traits\HasFullTextSearch;
 use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class InvestigatorResource extends Resource
 {
-    use HasFullTextSearch;
+    // use HasFullTextSearch;
 
     protected static ?string $model = Investigator::class;
 
@@ -25,7 +25,7 @@ class InvestigatorResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static ?string $recordTitleAttribute = 'model_title';
+    protected static ?string $recordTitleAttribute = 'email';
 
     public static function form(Form $form): Form
     {

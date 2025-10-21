@@ -7,7 +7,7 @@ use App\Filament\Resources\SampleResource\RelationManagers;
 use App\Livewire\FileUpload;
 use App\Models\BioSample;
 use App\Models\Sample;
-use App\Traits\HasFullTextSearch;
+// use App\Traits\HasFullTextSearch;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Pages\ListRecords;
@@ -21,7 +21,7 @@ use Illuminate\Database\Query\Builder;
 
 class SampleResource extends Resource
 {
-    use HasFullTextSearch;
+    // use HasFullTextSearch;
 
     protected static ?string $model = Sample::class;
 
@@ -29,7 +29,7 @@ class SampleResource extends Resource
 
     protected static ?int $navigationSort = 4;
 
-    protected static ?string $recordTitleAttribute = 'model_title';
+    protected static ?string $recordTitleAttribute = 'uid';
 
     public static function form(Form $form): Form
     {
