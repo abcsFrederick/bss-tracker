@@ -9,6 +9,12 @@
 
     {{ \Filament\Support\Facades\FilamentView::renderHook('panels::auth.login.form.before') }}
 
+    @if($errors->has('oauth'))
+        <div class="rounded-md bg-red-50 p-4 text-sm font-medium text-red-800 dark:bg-red-950 dark:text-red-200" role="alert">
+            {{ $errors->first('oauth') }}
+        </div>
+    @endif
+
     @if(\App\Models\Setting::where('setting', 'disable_password_login')->where('value', '1')->count() === 0)
             <x-filament-panels::form wire:submit="authenticate">
                 {{ $this->form }}

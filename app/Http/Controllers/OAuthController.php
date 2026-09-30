@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Setting;
 use App\Models\User;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Str;
 
 class OAuthController
 {
+    private const UNAUTHORIZED_MESSAGE = 'Sorry you are not authorized to access this application. To gain access, please contact an application administrator.';
+
     public function redirect()
     {
         $url = Setting::where('setting', 'oauth_client_url')->firstOrFail();
@@ -67,17 +67,16 @@ class OAuthController
 
     public function loginUsingResponse($response)
     {
-        try {
-            $user = User::where('email', $response['email'])->firstOrFail();
-        } catch (ModelNotFoundException $e) {
-            $user = new User();
+        $user = User::where('email', $response['email'])->first();
 
-            $user->name = $response['name'];
-            $user->email = $response['email'];
-            $user->password = Str::random(128);
-            $user->role = 1;
+        if (! $user) {
+            Auth::logout();
 
-            $user->save();
+            abcs_logger("category=\"Authorization\" result=\"Unauthorized\" userAD=\"{$response['userid']}\"");
+
+            return redirect()
+                ->route('filament.bss.auth.login')
+                ->withErrors(['oauth' => self::UNAUTHORIZED_MESSAGE]);
         }
 
         Auth::loginUsingId($user->id);
